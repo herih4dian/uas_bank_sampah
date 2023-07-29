@@ -11,7 +11,7 @@
             Edit
           @else
             Create
-          @endif Nasabah</h1>
+          @endif Satuan</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -20,7 +20,7 @@
               Edit
             @else
               Create
-            @endif Nasabah</li>
+            @endif Satuan</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -36,7 +36,7 @@
         <div class="col-md-6">
           <div class="card border-0 shadow-sm rounded">
             <div class="card-body">
-              <form action="{{ (request()->is('nasabah/create')) ? url('nasabah/store') : url('nasabah/update', $data->id) }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ (request()->is('satuan/create')) ? url('satuan/store') : url('satuan/update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if($data)         
                   @method('PUT')
@@ -45,23 +45,11 @@
                 @endif
                 
                 <div class="form-group">
-                    <label class="font-weight-bold">Nama</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{  old('nama', ($data) ? $data->nama : '')  }}" placeholder="Masukkan Nama">
+                    <label class="font-weight-bold">Satuan</label>
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="satuan" value="{{  old('satuan', ($data) ? $data->satuan : '')  }}" placeholder="Satuan">
                 
                     <!-- error message untuk title -->
-                    @error('nama')
-                        <div class="alert alert-danger mt-2">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-        
-                <div class="form-group">
-                    <label class="font-weight-bold">Alamat</label>
-                    <textarea class="form-control @error('alamat') is-invalid @enderror" name="alamat" rows="5" placeholder="Masukkan Alamat">{{ old('alamat', ($data) ? $data->alamat : '') }}</textarea>
-                
-                    <!-- error message untuk content -->
-                    @error('alamat')
+                    @error('satuan')
                         <div class="alert alert-danger mt-2">
                             {{ $message }}
                         </div>

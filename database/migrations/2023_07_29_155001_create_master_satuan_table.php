@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('master_satuan_tables', function (Blueprint $table) {
             $table->id();
-            $table->text('text', 4);
+            $table->text('satuan', 4);
             $table->timestamps();
         });
     }

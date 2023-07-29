@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\MasterNasabahController;
+use App\Http\Controllers\MasterSatuanController;
 use App\Http\Controllers\ProfileController;
 use App\Models\MasterNasabah;
+use App\Models\MasterSatuan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +48,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/nasabah/store', [MasterNasabahController::class, 'store'])->name('nasabah.store');
     Route::get('/nasabah/edit/{id}', [MasterNasabahController::class, 'edit'])->name('nasabah.edit')->where('id', '[0-9]+');
     Route::put('/nasabah/update/{id}', [MasterNasabahController::class, 'update'])->name('nasabah.update')->where('id', '[0-9]+');
+
+
+    Route::get('/satuan', [MasterSatuanController::class, 'index'])->name('satuan.index');
+    Route::get('/satuan/create', [MasterSatuanController::class, 'create'])->name('satuan.create');
+    Route::post('/satuan/store', [MasterSatuanController::class, 'store'])->name('satuan.store');
+    Route::get('/satuan/edit/{id}', [MasterSatuanController::class, 'edit'])->name('satuan.edit')->where('id', '[0-9]+');
+    Route::put('/satuan/update/{id}', [MasterSatuanController::class, 'update'])->name('satuan.update')->where('id', '[0-9]+');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
