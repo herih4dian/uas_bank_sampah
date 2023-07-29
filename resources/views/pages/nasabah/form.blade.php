@@ -7,12 +7,20 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Edit / Create Nasabah</h1>
+          <h1 class="m-0">@if($data)         
+            Edit
+          @else
+            Create
+          @endif Nasabah</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            <li class="breadcrumb-item active">Create / Edit Nasabah</li>
+            <li class="breadcrumb-item active">@if($data)         
+              Edit
+            @else
+              Create
+            @endif Nasabah</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -60,7 +68,11 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-md btn-primary">UPDATE</button>
+                <button type="submit" class="btn btn-md btn-primary">@if($data)         
+                  UBAH
+                @else
+                  SIMPAN
+                @endif</button>
                 <button type="reset" class="btn btn-md btn-warning">RESET</button>
         
               </form> 
