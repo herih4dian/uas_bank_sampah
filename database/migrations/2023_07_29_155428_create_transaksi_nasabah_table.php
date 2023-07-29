@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaksi_nasabah_tables', function (Blueprint $table) {
+        Schema::create('transaksi_nasabah_table', function (Blueprint $table) {
             $table->id();
             $table->date("tanggal_transaksi");
             $table->bigInteger('id_nasabah')->unsigned();
@@ -32,7 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaksi_nasabah_tables');
+        Schema::dropIfExists('transaksi_nasabah_table');
     }
 };
-

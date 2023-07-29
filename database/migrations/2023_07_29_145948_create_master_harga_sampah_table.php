@@ -15,19 +15,11 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_master_jenis_sampah')->unsigned();
             $table->foreign('id_master_jenis_sampah')->references('id')->on('master_jenis_sampah');  
+            $table->float('harga_sampah', 10, 2);
             $table->timestamps();
         });
 
     }
-
-            // Schema::create('content', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('topik', 100);
-        //     $table->string('materi', 200);
-        //     $table->text('konten', );
-        //     $table->string('keterangan', 300);
-        //     $table->timestamps();
-        // });
 
     /**
      * Reverse the migrations.
