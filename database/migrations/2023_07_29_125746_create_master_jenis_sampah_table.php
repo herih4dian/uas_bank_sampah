@@ -25,6 +25,7 @@ return new class extends Migration
         //     $table->string('keterangan', 300);
         //     $table->timestamps();
         // });
+        //Halo Bank Steven
     }
 
     /**
