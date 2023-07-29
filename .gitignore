@@ -5,6 +5,8 @@
 /public/storage
 /storage/*.key
 /vendor
+.env
+.gitignore
 .env.backup
 .env.production
 .phpunit.result.cache
