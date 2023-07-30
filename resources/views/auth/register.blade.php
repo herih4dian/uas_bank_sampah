@@ -4,7 +4,7 @@
 <body class="hold-transition register-page">
     <div class="register-box">
       <div class="register-logo">
-        <a href="{{ route('home') }}"><b>{{ config('app.name', 'Laravel') }}</b> 1.0</a>
+        <a href="{{ route('home') }}"><b>Sistem Bank Sampah</b> Kelompok 4</a>
       </div>
 
       <div class="card">
@@ -77,7 +77,7 @@
             </div>
           </form>
 
-          <div class="social-auth-links text-center">
+          {{-- <div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-primary">
               <i class="fab fa-facebook mr-2"></i>
@@ -87,7 +87,7 @@
               <i class="fab fa-google-plus mr-2"></i>
               Sign up using Google+
             </a>
-          </div>
+          </div> --}}
           @if (Route::has('login'))
           <a href="{{ route('login') }}" class="text-center">I already have a membership</a>
           @endif
