@@ -15,7 +15,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="/nasabah">Nasabah</a></li>
             <li class="breadcrumb-item active">@if($data)         
               Edit
             @else
@@ -74,8 +74,14 @@
                   SIMPAN
                 @endif</button>
                 <button type="reset" class="btn btn-md btn-warning">RESET</button>
-        
               </form> 
+
+              <a href="/nasabah" class="text-decoration-none">
+                <div class="d-grid gap-6 d-md-flex justify-content-md-end">
+                    <button type="submit" name="submit" class="btn btn-danger"> KEMBALI </button>
+                </div>
+              </a>
+
             </div>
           </div>
         </div>

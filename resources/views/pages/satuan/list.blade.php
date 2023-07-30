@@ -29,6 +29,11 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data Satuan Bank Sampah</h3>
+              <a href="/satuan/create" class="text-decoration-none">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-primary" type="button">Tambah Data</button>
+                </div>
+              </a>
             </div>
             <!-- /.card-header -->
 

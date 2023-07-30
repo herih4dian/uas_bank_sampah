@@ -44,6 +44,8 @@ class MasterSatuanController extends Controller
         return redirect()->route('satuan.index')->with(['success' => 'Data Berhasil Di Simpan!']);
     }
 
+    
+
     /**
      * Display the specified resource.
      */
