@@ -39,10 +39,11 @@
 
             
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="satuan" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Satuan</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>

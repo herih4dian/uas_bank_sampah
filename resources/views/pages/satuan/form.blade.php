@@ -34,38 +34,51 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="card border-0 shadow-sm rounded">
-            <div class="card-body">
-              <form action="{{ (request()->is('satuan/create')) ? url('satuan/store') : url('satuan/update', $data->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @if($data)         
-                  @method('PUT')
-                @else
-                  @method('POST') 
-                @endif
-                
+          <div class="card card-primary">
+            <div class="card-header">
+            <h3 class="card-title">Form 
+              @if($data)         
+                Edit
+              @else
+                Create
+              @endif 
+              Satuan</h3>
+            </div>
+            
+            <form class="form-horizontal" action="{{ (request()->is('satuan/create')) ? url('satuan/store') : url('satuan/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
+              @csrf
+              @if($data)         
+                @method('PUT')
+              @else
+                @method('POST') 
+              @endif
+              <div class="card-body">
                 <div class="form-group">
-                    <label class="font-weight-bold">Satuan</label>
+                  <label class="font-weight-bold">Satuan</label>
                     <input type="text" class="form-control @error('nama') is-invalid @enderror" name="satuan" value="{{  old('satuan', ($data) ? $data->satuan : '')  }}" placeholder="Satuan">
-                
-                    <!-- error message untuk title -->
                     @error('satuan')
                         <div class="alert alert-danger mt-2">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
-
-                <button type="submit" class="btn btn-md btn-primary">@if($data)         
-                  UBAH
-                @else
-                  SIMPAN
-                @endif</button>
+              </div>
+              
+              <div class="card-footer">
+                <button type="submit" class="btn btn-md btn-primary">
+                  @if($data)         
+                    UBAH
+                  @else
+                    SIMPAN
+                  @endif
+                </button>
                 <button type="reset" class="btn btn-md btn-warning">RESET</button>
-        
-              </form> 
-            </div>
+                <a type="button" href="/nasabah" class="btn btn-default float-right">KEMBALI</a>
+              </div>
+            
+            </form>
           </div>
+
         </div>
       </div>
       

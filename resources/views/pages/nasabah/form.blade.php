@@ -34,56 +34,63 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="card border-0 shadow-sm rounded">
-            <div class="card-body">
-              <form action="{{ (request()->is('nasabah/create')) ? url('nasabah/store') : url('nasabah/update', $data->id) }}" method="POST" enctype="multipart/form-data">
+
+            <div class="card card-primary">
+              <div class="card-header">
+              <h3 class="card-title">Form 
+                @if($data)         
+                  Edit
+                @else
+                  Create
+                @endif 
+                Nasabah</h3>
+              </div>
+              
+              <form class="form-horizontal" action="{{ (request()->is('nasabah/create')) ? url('nasabah/store') : url('nasabah/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @if($data)         
                   @method('PUT')
                 @else
                   @method('POST') 
                 @endif
-                
-                <div class="form-group">
+                <div class="card-body">
+                  <div class="form-group">
                     <label class="font-weight-bold">Nama</label>
                     <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{  old('nama', ($data) ? $data->nama : '')  }}" placeholder="Masukkan Nama">
-                
-                    <!-- error message untuk title -->
                     @error('nama')
                         <div class="alert alert-danger mt-2">
                             {{ $message }}
                         </div>
                     @enderror
-                </div>
-        
-                <div class="form-group">
+                  </div>
+
+                  <div class="form-group">
                     <label class="font-weight-bold">Alamat</label>
                     <textarea class="form-control @error('alamat') is-invalid @enderror" name="alamat" rows="5" placeholder="Masukkan Alamat">{{ old('alamat', ($data) ? $data->alamat : '') }}</textarea>
-                
-                    <!-- error message untuk content -->
                     @error('alamat')
                         <div class="alert alert-danger mt-2">
                             {{ $message }}
                         </div>
                     @enderror
+                  </div>
+
                 </div>
-
-                <button type="submit" class="btn btn-md btn-primary">@if($data)         
-                  UBAH
-                @else
-                  SIMPAN
-                @endif</button>
-                <button type="reset" class="btn btn-md btn-warning">RESET</button>
-              </form> 
-
-              <a href="/nasabah" class="text-decoration-none">
-                <div class="d-grid gap-6 d-md-flex justify-content-md-end">
-                    <button type="submit" name="submit" class="btn btn-danger"> KEMBALI </button>
+                
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-md btn-primary">
+                    @if($data)         
+                      UBAH
+                    @else
+                      SIMPAN
+                    @endif
+                  </button>
+                  <button type="reset" class="btn btn-md btn-warning">RESET</button>
+                  <a type="button" href="/nasabah" class="btn btn-default float-right">KEMBALI</a>
                 </div>
-              </a>
-
+              
+              </form>
             </div>
-          </div>
+          
         </div>
       </div>
       
