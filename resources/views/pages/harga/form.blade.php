@@ -49,7 +49,7 @@
               <form class="form-horizontal" action="{{ (request()->is('bank/harga/create')) ? url('bank/harga/store') : url('bank/harga/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @if($data)     
-                 {{ var_dump($data) }}    
+                 {{-- {{ var_dump($data) }}     --}}
                   @method('PUT')
                 @else
                   @method('POST') 
@@ -58,8 +58,9 @@
                   <div class="form-group">
                     <label class="font-weight-bold">Jenis / Type</label>
                     <select class="form-control rounded-0 custom-select @error('id_master_jenis_sampah') is-invalid @enderror" name="id_master_jenis_sampah">
+                      <option value="" selected>-</option>
                       @forelse ($j_sampah as $val)
-                        <option value="{{ $val->id }}" selected>{{ $val->type_sampah }}</option>
+                        <option value="{{ $val->id }}" {{ ($data) ? (($val->id == $data->id_master_jenis_sampah ) ? 'selected' : '') : '' }}>{{ $val->type_sampah }}</option>
                       @empty
                         <tr>
                           <option value="">No Data</option>
