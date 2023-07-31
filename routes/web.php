@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MasterHargaSampahController;
 use App\Http\Controllers\MasterJenisSampahController;
 use App\Http\Controllers\MasterNasabahController;
 use App\Http\Controllers\MasterSatuanController;
@@ -63,6 +64,12 @@ Route::middleware('auth')->group(function () {
     Route::post('bank/jenis/store', [MasterJenisSampahController::class, 'store'])->name('jenis.store');
     Route::get('bank/jenis/edit/{id}', [MasterJenisSampahController::class, 'edit'])->name('jenis.edit')->where('id', '[0-9]+');
     Route::put('bank/jenis/update/{id}', [MasterJenisSampahController::class, 'update'])->name('jenis.update')->where('id', '[0-9]+');
+
+    Route::get('bank/harga', [MasterHargaSampahController::class, 'index'])->name('harga.index');
+    Route::get('bank/harga/create', [MasterHargaSampahController::class, 'create'])->name('harga.create');
+    Route::post('bank/harga/store', [MasterHargaSampahController::class, 'store'])->name('harga.store');
+    Route::get('bank/harga/edit/{id}', [MasterHargaSampahController::class, 'edit'])->name('harga.edit')->where('id', '[0-9]+');
+    Route::put('bank/harga/update/{id}', [MasterHargaSampahController::class, 'update'])->name('harga.update')->where('id', '[0-9]+');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

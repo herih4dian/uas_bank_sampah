@@ -48,7 +48,8 @@
               
               <form class="form-horizontal" action="{{ (request()->is('bank/harga/create')) ? url('bank/harga/store') : url('bank/harga/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
-                @if($data)         
+                @if($data)     
+                 {{ var_dump($data) }}    
                   @method('PUT')
                 @else
                   @method('POST') 
@@ -56,8 +57,26 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label class="font-weight-bold">Jenis / Type</label>
-                    <input type="text" class="form-control @error('type_sampah') is-invalid @enderror" name="type_sampah" value="{{  old('type_sampah', ($data) ? $data->type_sampah : '')  }}" placeholder="Masukkan Jenis / Type Sampah">
-                    @error('type_sampah')
+                    <select class="form-control rounded-0 custom-select @error('id_master_jenis_sampah') is-invalid @enderror" name="id_master_jenis_sampah">
+                      @forelse ($j_sampah as $val)
+                        <option value="{{ $val->id }}" selected>{{ $val->type_sampah }}</option>
+                      @empty
+                        <tr>
+                          <option value="">No Data</option>
+                        </tr>
+                      @endforelse
+                    </select>
+                    {{-- <input type="text" class="form-control @error('id_master_jenis_sampah') is-invalid @enderror" name="id_master_jenis_sampah" value="{{  old('id_master_jenis_sampah', ($data) ? $data->id_master_jenis_sampah : '')  }}" placeholder="Masukkan Jenis / Type Sampah"> --}}
+                    @error('id_master_jenis_sampah')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label class="font-weight-bold">Harga Sampah</label>
+                    <input type="text" class="form-control @error('harga_sampah') is-invalid @enderror" name="harga_sampah" value="{{  old('harga_sampah', ($data) ? $data->harga_sampah : '')  }}" placeholder="Masukkan Harga Sampah">
+                    @error('harga_sampah')
                         <div class="alert alert-danger mt-2">
                             {{ $message }}
                         </div>
