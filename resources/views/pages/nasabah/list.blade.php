@@ -29,7 +29,7 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data Nasabah Bank Sampah</h3>
-                <a href="/nasabah/create" class="text-decoration-none">
+                <a href="/manajemen/nasabah/create" class="text-decoration-none">
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary" type="button">Tambah Data</button>
                   </div>
@@ -52,7 +52,7 @@
                           <tr>
                               <td>{{ $val->nama }}</td>
                               <td>{{ $val->alamat }}</td>
-                              <th><a href="{{ url('nasabah/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
+                              <th><a href="{{ url('manajemen/nasabah/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
                           </tr>
                   @empty
                       <tr>

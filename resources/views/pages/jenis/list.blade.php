@@ -29,7 +29,7 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data Jenis Sampah</h3>
-                <a href="/jenis/create" class="text-decoration-none">
+                <a href="/bank/jenis/create" class="text-decoration-none">
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary" type="button">Tambah Data</button>
                   </div>
@@ -50,7 +50,7 @@
                   @forelse ($datas as $val)
                           <tr>
                               <td>{{ $val->type_sampah }}</td>
-                              <th><a href="{{ url('jenis/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
+                              <th><a href="{{ url('bank/jenis/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
                           </tr>
                   @empty
                       <tr>

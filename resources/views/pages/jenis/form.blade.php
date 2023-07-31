@@ -46,7 +46,7 @@
                 Nasabah</h3>
               </div>
               
-              <form class="form-horizontal" action="{{ (request()->is('jenis/create')) ? url('jenis/store') : url('jenis/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
+              <form class="form-horizontal" action="{{ (request()->is('bank/jenis/create')) ? url('bank/jenis/store') : url('bank/jenis/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @if($data)         
                   @method('PUT')
@@ -74,7 +74,7 @@
                     @endif
                   </button>
                   <button type="reset" class="btn btn-md btn-warning">RESET</button>
-                  <a type="button" href="/jenis" class="btn btn-default float-right">KEMBALI</a>
+                  <a type="button" href="/bank/jenis" class="btn btn-default float-right">KEMBALI</a>
                 </div>
               
               </form>

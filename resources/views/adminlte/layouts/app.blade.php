@@ -132,19 +132,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('harga') }}" class="nav-link {{ (request()->is('harga')) ? 'active' : '' }}">
+                <a href="{{ url('bank/harga') }}" class="nav-link {{ (request()->is('bank/harga*')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Harga Jual Sampah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('jenis') }}" class="nav-link {{ (request()->is('jenis')) ? 'active' : '' }}">
+                <a href="{{ url('bank/jenis') }}" class="nav-link {{ (request()->is('bank/jenis*')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jenis Sampah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('satuan') }}" class="nav-link {{ (request()->is('satuan')) ? 'active' : '' }}">
+                <a href="{{ url('bank/satuan') }}" class="nav-link {{ (request()->is('bank/satuan*')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Satuan</p>
                 </a>
@@ -162,13 +162,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('nasabah') }}" class="nav-link {{ (request()->is('nasabah')) ? 'active' : '' }}">
+                <a href="{{ url('manajemen/nasabah') }}" class="nav-link {{ (request()->is('manajemen/nasabah')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Nasabah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('transaksi') }}" class="nav-link {{ (request()->is('transaksi')) ? 'active' : '' }}">
+                <a href="{{ url('manajemen/transaksi') }}" class="nav-link {{ (request()->is('manajemen/transaksi')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Riwayat Transaksi</p>
                 </a>

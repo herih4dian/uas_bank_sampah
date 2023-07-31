@@ -45,24 +45,24 @@ Route::middleware('auth')->group(function () {
     // Route::get('/pelanggan/edit/{id}', [PelangganController::class, 'edit'])->name('pelanggan.edit')->where('id', '[0-9]+');
     // Route::put('/pelanggan/update/{id}', [PelangganController::class, 'update'])->name('pelanggan.update')->where('id', '[0-9]+');
 
-    Route::get('/nasabah', [MasterNasabahController::class, 'index'])->name('nasabah.index');
-    Route::get('/nasabah/create', [MasterNasabahController::class, 'create'])->name('nasabah.create');
-    Route::post('/nasabah/store', [MasterNasabahController::class, 'store'])->name('nasabah.store');
-    Route::get('/nasabah/edit/{id}', [MasterNasabahController::class, 'edit'])->name('nasabah.edit')->where('id', '[0-9]+');
-    Route::put('/nasabah/update/{id}', [MasterNasabahController::class, 'update'])->name('nasabah.update')->where('id', '[0-9]+');
+    Route::get('manajemen/nasabah', [MasterNasabahController::class, 'index'])->name('nasabah.index');
+    Route::get('manajemen/nasabah/create', [MasterNasabahController::class, 'create'])->name('nasabah.create');
+    Route::post('manajemen/nasabah/store', [MasterNasabahController::class, 'store'])->name('nasabah.store');
+    Route::get('manajemen/nasabah/edit/{id}', [MasterNasabahController::class, 'edit'])->name('nasabah.edit')->where('id', '[0-9]+');
+    Route::put('manajemen/nasabah/update/{id}', [MasterNasabahController::class, 'update'])->name('nasabah.update')->where('id', '[0-9]+');
 
 
-    Route::get('/satuan', [MasterSatuanController::class, 'index'])->name('satuan.index');
-    Route::get('/satuan/create', [MasterSatuanController::class, 'create'])->name('satuan.create');
-    Route::post('/satuan/store', [MasterSatuanController::class, 'store'])->name('satuan.store');
-    Route::get('/satuan/edit/{id}', [MasterSatuanController::class, 'edit'])->name('satuan.edit')->where('id', '[0-9]+');
-    Route::put('/satuan/update/{id}', [MasterSatuanController::class, 'update'])->name('satuan.update')->where('id', '[0-9]+');
+    Route::get('bank/satuan', [MasterSatuanController::class, 'index'])->name('satuan.index');
+    Route::get('bank/satuan/create', [MasterSatuanController::class, 'create'])->name('satuan.create');
+    Route::post('bank/satuan/store', [MasterSatuanController::class, 'store'])->name('satuan.store');
+    Route::get('bank/satuan/edit/{id}', [MasterSatuanController::class, 'edit'])->name('satuan.edit')->where('id', '[0-9]+');
+    Route::put('bank/satuan/update/{id}', [MasterSatuanController::class, 'update'])->name('satuan.update')->where('id', '[0-9]+');
 
-    Route::get('/jenis', [MasterJenisSampahController::class, 'index'])->name('jenis.index');
-    Route::get('/jenis/create', [MasterJenisSampahController::class, 'create'])->name('jenis.create');
-    Route::post('/jenis/store', [MasterJenisSampahController::class, 'store'])->name('jenis.store');
-    Route::get('/jenis/edit/{id}', [MasterJenisSampahController::class, 'edit'])->name('jenis.edit')->where('id', '[0-9]+');
-    Route::put('/jenis/update/{id}', [MasterJenisSampahController::class, 'update'])->name('jenis.update')->where('id', '[0-9]+');
+    Route::get('bank/jenis', [MasterJenisSampahController::class, 'index'])->name('jenis.index');
+    Route::get('bank/jenis/create', [MasterJenisSampahController::class, 'create'])->name('jenis.create');
+    Route::post('bank/jenis/store', [MasterJenisSampahController::class, 'store'])->name('jenis.store');
+    Route::get('bank/jenis/edit/{id}', [MasterJenisSampahController::class, 'edit'])->name('jenis.edit')->where('id', '[0-9]+');
+    Route::put('bank/jenis/update/{id}', [MasterJenisSampahController::class, 'update'])->name('jenis.update')->where('id', '[0-9]+');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -15,7 +15,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/nasabah">Nasabah</a></li>
+            <li class="breadcrumb-item"><a href="/manajemen/nasabah">Nasabah</a></li>
             <li class="breadcrumb-item active">@if($data)         
               Edit
             @else
@@ -46,7 +46,7 @@
                 Nasabah</h3>
               </div>
               
-              <form class="form-horizontal" action="{{ (request()->is('nasabah/create')) ? url('nasabah/store') : url('nasabah/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
+              <form class="form-horizontal" action="{{ (request()->is('manajemen/nasabah/create')) ? url('manajemen/nasabah/store') : url('manajemen/nasabah/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @if($data)         
                   @method('PUT')
@@ -85,7 +85,7 @@
                     @endif
                   </button>
                   <button type="reset" class="btn btn-md btn-warning">RESET</button>
-                  <a type="button" href="/nasabah" class="btn btn-default float-right">KEMBALI</a>
+                  <a type="button" href="/manajemen/nasabah" class="btn btn-default float-right">KEMBALI</a>
                 </div>
               
               </form>
