@@ -7,12 +7,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">List Nasabah</h1>
+          <h1 class="m-0">List Jenis Sampah</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            <li class="breadcrumb-item active">List Nasabah</li>
+            <li class="breadcrumb-item active">List Jenis Sampah</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -28,8 +28,8 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Nasabah Bank Sampah</h3>
-                <a href="/nasabah/create" class="text-decoration-none">
+              <h3 class="card-title">Data Jenis Sampah</h3>
+                <a href="/jenis/create" class="text-decoration-none">
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary" type="button">Tambah Data</button>
                   </div>
@@ -42,17 +42,15 @@
               <table id="nasabah" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama</th>
-                  <th>Alamat</th>
+                  <th>Jenis / Type Sampah</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                   @forelse ($datas as $val)
                           <tr>
-                              <td>{{ $val->nama }}</td>
-                              <td>{{ $val->alamat }}</td>
-                              <th><a href="{{ url('nasabah/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
+                              <td>{{ $val->type_sampah }}</td>
+                              <th><a href="{{ url('jenis/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
                           </tr>
                   @empty
                       <tr>

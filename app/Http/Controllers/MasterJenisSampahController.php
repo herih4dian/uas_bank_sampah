@@ -12,7 +12,8 @@ class MasterJenisSampahController extends Controller
      */
     public function index()
     {
-        //
+        $datas = MasterJenisSampah::all();
+        return view('pages.jenis.list', compact('datas'));
     }
 
     /**
@@ -20,7 +21,8 @@ class MasterJenisSampahController extends Controller
      */
     public function create()
     {
-        //
+        $data = [];
+        return view('pages.jenis.form', compact('data'));
     }
 
     /**
@@ -28,7 +30,18 @@ class MasterJenisSampahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate form
+        $this->validate($request, [
+            'type_sampah' => 'required|min:2',
+        ]);
+
+        //create post
+        MasterJenisSampah::create([
+            'type_sampah' => $request->type_sampah,
+        ]);
+
+        //redirect to index
+        return redirect()->route('jenis.index')->with(['success' => 'Data Berhasil Di Simpan!']);
     }
 
     /**
@@ -42,17 +55,29 @@ class MasterJenisSampahController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(MasterJenisSampah $masterJenisSampah)
+    public function edit(String $id)
     {
-        //
+        $data = MasterJenisSampah::findOrFail($id);
+        return view('pages.jenis.form', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MasterJenisSampah $masterJenisSampah)
+    public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'type_sampah' => 'required|min:2',
+        ]);
+
+        //get post by ID
+        $data = MasterJenisSampah::findOrFail($id);
+
+        $data->update([
+            'type_sampah' => $request->type_sampah,
+        ]);
+
+        return redirect()->route('nasabah.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**

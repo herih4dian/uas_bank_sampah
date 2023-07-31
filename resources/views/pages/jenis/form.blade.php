@@ -11,16 +11,16 @@
             Edit
           @else
             Create
-          @endif Nasabah</h1>
+          @endif Jenis Sampah</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/nasabah">Nasabah</a></li>
+            <li class="breadcrumb-item"><a href="/jenis">Jenis Sampah</a></li>
             <li class="breadcrumb-item active">@if($data)         
               Edit
             @else
               Create
-            @endif Nasabah</li>
+            @endif Jenis Sampah</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -46,7 +46,7 @@
                 Nasabah</h3>
               </div>
               
-              <form class="form-horizontal" action="{{ (request()->is('nasabah/create')) ? url('nasabah/store') : url('nasabah/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
+              <form class="form-horizontal" action="{{ (request()->is('jenis/create')) ? url('jenis/store') : url('jenis/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @if($data)         
                   @method('PUT')
@@ -55,25 +55,14 @@
                 @endif
                 <div class="card-body">
                   <div class="form-group">
-                    <label class="font-weight-bold">Nama</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{  old('nama', ($data) ? $data->nama : '')  }}" placeholder="Masukkan Nama">
-                    @error('nama')
+                    <label class="font-weight-bold">Jenis / Type</label>
+                    <input type="text" class="form-control @error('type_sampah') is-invalid @enderror" name="type_sampah" value="{{  old('type_sampah', ($data) ? $data->type_sampah : '')  }}" placeholder="Masukkan Jenis / Type Sampah">
+                    @error('type_sampah')
                         <div class="alert alert-danger mt-2">
                             {{ $message }}
                         </div>
                     @enderror
                   </div>
-
-                  <div class="form-group">
-                    <label class="font-weight-bold">Alamat</label>
-                    <textarea class="form-control @error('alamat') is-invalid @enderror" name="alamat" rows="5" placeholder="Masukkan Alamat">{{ old('alamat', ($data) ? $data->alamat : '') }}</textarea>
-                    @error('alamat')
-                        <div class="alert alert-danger mt-2">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                  </div>
-
                 </div>
                 
                 <div class="card-footer">
@@ -85,7 +74,7 @@
                     @endif
                   </button>
                   <button type="reset" class="btn btn-md btn-warning">RESET</button>
-                  <a type="button" href="/nasabah" class="btn btn-default float-right">KEMBALI</a>
+                  <a type="button" href="/jenis" class="btn btn-default float-right">KEMBALI</a>
                 </div>
               
               </form>

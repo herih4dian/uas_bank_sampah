@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\MasterJenisSampahController;
 use App\Http\Controllers\MasterNasabahController;
 use App\Http\Controllers\MasterSatuanController;
 use App\Http\Controllers\ProfileController;
+use App\Models\MasterJenisSampah;
 use App\Models\MasterNasabah;
 use App\Models\MasterSatuan;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +57,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/satuan/store', [MasterSatuanController::class, 'store'])->name('satuan.store');
     Route::get('/satuan/edit/{id}', [MasterSatuanController::class, 'edit'])->name('satuan.edit')->where('id', '[0-9]+');
     Route::put('/satuan/update/{id}', [MasterSatuanController::class, 'update'])->name('satuan.update')->where('id', '[0-9]+');
+
+    Route::get('/jenis', [MasterJenisSampahController::class, 'index'])->name('jenis.index');
+    Route::get('/jenis/create', [MasterJenisSampahController::class, 'create'])->name('jenis.create');
+    Route::post('/jenis/store', [MasterJenisSampahController::class, 'store'])->name('jenis.store');
+    Route::get('/jenis/edit/{id}', [MasterJenisSampahController::class, 'edit'])->name('jenis.edit')->where('id', '[0-9]+');
+    Route::put('/jenis/update/{id}', [MasterJenisSampahController::class, 'update'])->name('jenis.update')->where('id', '[0-9]+');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
