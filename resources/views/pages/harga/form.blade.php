@@ -11,16 +11,16 @@
             Edit
           @else
             Create
-          @endif Jenis Sampah</h1>
+          @endif Harga Sampah</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/jenis">Jenis Sampah</a></li>
+            <li class="breadcrumb-item"><a href="bank/harga">Harga Sampah</a></li>
             <li class="breadcrumb-item active">@if($data)         
               Edit
             @else
               Create
-            @endif Jenis Sampah</li>
+            @endif Harga Sampah</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -43,10 +43,10 @@
                 @else
                   Create
                 @endif 
-                Nasabah</h3>
+                Harga Sampah</h3>
               </div>
               
-              <form class="form-horizontal" action="{{ (request()->is('bank/jenis/create')) ? url('bank/jenis/store') : url('bank/jenis/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
+              <form class="form-horizontal" action="{{ (request()->is('bank/harga/create')) ? url('bank/harga/store') : url('bank/harga/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @if($data)         
                   @method('PUT')
@@ -74,7 +74,7 @@
                     @endif
                   </button>
                   <button type="reset" class="btn btn-md btn-warning">RESET</button>
-                  <a type="button" href="/bank/jenis" class="btn btn-default float-right">KEMBALI</a>
+                  <a type="button" href="/bank/harga" class="btn btn-default float-right">KEMBALI</a>
                 </div>
               
               </form>
