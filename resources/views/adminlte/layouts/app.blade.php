@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item"> <!-- menu-open -->
               <a href="{{ url('home') }}" class="nav-link {{ (request()->is('home*')) ? 'active' : '' }}"> <!-- active -->
                 <i class="nav-icon fas fa-home"></i>
-                Home
+                <p>Home</p>
               </a>
             </li>
             
@@ -176,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item"> <!-- menu-open -->
               <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
-                Logout
+                <p>Logout</p>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
