@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MasterHargaSampah;
 use App\Models\MasterJenisSampah;
+use App\Models\MasterSatuan;
 use Illuminate\Http\Request;
 
 class MasterHargaSampahController extends Controller
@@ -24,7 +25,8 @@ class MasterHargaSampahController extends Controller
     {
         $data = [];
         $j_sampah = MasterJenisSampah::all();
-        return view('pages.harga.form', compact('data', 'j_sampah'));
+        $satuan = MasterSatuan::all();
+        return view('pages.harga.form', compact('data', 'j_sampah', 'satuan'));
     }
 
     /**
@@ -36,12 +38,14 @@ class MasterHargaSampahController extends Controller
         $this->validate($request, [
             'id_master_jenis_sampah' => 'required|min:1',
             'harga_sampah' => 'required',
+            'id_master_satuan' => 'required|min:1'
         ]);
 
         //create post
         MasterHargaSampah::create([
             'id_master_jenis_sampah' => $request->id_master_jenis_sampah,
             'harga_sampah' => $request->harga_sampah,
+            'id_master_satuan' => $request->id_master_satuan,
         ]);
 
         //redirect to index
@@ -63,7 +67,8 @@ class MasterHargaSampahController extends Controller
     {
         $data = MasterHargaSampah::findOrFail($id);
         $j_sampah = MasterJenisSampah::all();
-        return view('pages.harga.form', compact('data', 'j_sampah'));
+        $satuan = MasterSatuan::all();
+        return view('pages.harga.form', compact('data', 'j_sampah', 'satuan'));
     }
 
     /**
@@ -74,6 +79,7 @@ class MasterHargaSampahController extends Controller
         $this->validate($request, [
             'id_master_jenis_sampah' => 'required|min:1',
             'harga_sampah' => 'required',
+            'id_master_satuan' => 'required|min:1'
         ]);
 
         //get post by ID
@@ -82,6 +88,7 @@ class MasterHargaSampahController extends Controller
         $data->update([
             'id_master_jenis_sampah' => $request->id_master_jenis_sampah,
             'harga_sampah' => $request->harga_sampah,
+            'id_master_satuan' => $request->id_master_satuan,
         ]);
 
         return redirect()->route('harga.index')->with(['success' => 'Data Berhasil Diubah!']);

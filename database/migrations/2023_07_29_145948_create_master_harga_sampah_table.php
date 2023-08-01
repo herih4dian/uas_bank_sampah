@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('master_harga_sampah', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_master_jenis_sampah')->unsigned();
-            $table->foreign('id_master_jenis_sampah')->references('id')->on('master_jenis_sampah');  
+            $table->foreign('id_master_jenis_sampah')->references('id')->on('master_jenis_sampah'); 
+            $table->bigInteger('id_master_satuan')->unsigned()->nullable();
+            $table->foreign('id_master_satuan')->references('id')->on('master_satuan_tables'); 
             $table->float('harga_sampah', 10, 2);
             $table->timestamps();
         });

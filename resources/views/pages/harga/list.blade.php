@@ -51,7 +51,7 @@
                   @forelse ($datas as $val)
                           <tr>
                               <td>{{ $val->jenis_sampah->type_sampah ?? '-' }}</td>
-                              <td>{{ $val->harga_sampah }}</td>
+                              <td>{{ $val->harga_sampah }} /{{ $val->satuan->satuan ?? '-' }}</td>
                               <th><a href="{{ url('bank/harga/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
                           </tr>
                   @empty

@@ -83,6 +83,24 @@
                         </div>
                     @enderror
                   </div>
+                  <div class="form-group">
+                    <label class="font-weight-bold">Satuan</label>
+                    <select class="form-control rounded-0 custom-select @error('id_master_satuan') is-invalid @enderror" name="id_master_satuan">
+                      <option value="" selected>-</option>
+                      @forelse ($satuan as $val)
+                        <option value="{{ $val->id }}" {{ ($data) ? (($val->id == $data->id_master_satuan ) ? 'selected' : '') : '' }}>{{ $val->satuan }}</option>
+                      @empty
+                        <tr>
+                          <option value="">No Data</option>
+                        </tr>
+                      @endforelse
+                    </select>
+                    @error('id_master_satuan')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
                 </div>
                 
                 <div class="card-footer">
