@@ -15,7 +15,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="bank/harga">Harga Sampah</a></li>
+            <li class="breadcrumb-item"><a href="/bank/harga">Harga Sampah</a></li>
             <li class="breadcrumb-item active">@if($data)         
               Edit
             @else
