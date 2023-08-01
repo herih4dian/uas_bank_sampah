@@ -12,7 +12,8 @@ class TransaksiNasabahController extends Controller
      */
     public function index()
     {
-        //
+        $datas = TransaksiNasabah::all();
+        return view('pages.transaksi.list', compact('datas'));
     }
 
     /**

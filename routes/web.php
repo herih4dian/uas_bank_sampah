@@ -4,6 +4,7 @@ use App\Http\Controllers\MasterHargaSampahController;
 use App\Http\Controllers\MasterJenisSampahController;
 use App\Http\Controllers\MasterNasabahController;
 use App\Http\Controllers\MasterSatuanController;
+use App\Http\Controllers\TransaksiNasabahController;
 use App\Http\Controllers\ProfileController;
 use App\Models\MasterJenisSampah;
 use App\Models\MasterNasabah;
@@ -52,6 +53,11 @@ Route::middleware('auth')->group(function () {
     Route::get('manajemen/nasabah/edit/{id}', [MasterNasabahController::class, 'edit'])->name('nasabah.edit')->where('id', '[0-9]+');
     Route::put('manajemen/nasabah/update/{id}', [MasterNasabahController::class, 'update'])->name('nasabah.update')->where('id', '[0-9]+');
 
+    Route::get('manajemen/transaksi', [TransaksiNasabahController::class, 'index'])->name('transaksi.index');
+    Route::get('manajemen/transaksi/create', [TransaksiNasabahController::class, 'create'])->name('transaksi.create');
+    Route::post('manajemen/transaksi/store', [TransaksiNasabahController::class, 'store'])->name('transaksi.store');
+    Route::get('manajemen/transaksi/edit/{id}', [TransaksiNasabahController::class, 'edit'])->name('transaksi.edit')->where('id', '[0-9]+');
+    Route::put('manajemen/transaksi/update/{id}', [TransaksiNasabahController::class, 'update'])->name('transaksi.update')->where('id', '[0-9]+');
 
     Route::get('bank/satuan', [MasterSatuanController::class, 'index'])->name('satuan.index');
     Route::get('bank/satuan/create', [MasterSatuanController::class, 'create'])->name('satuan.create');
