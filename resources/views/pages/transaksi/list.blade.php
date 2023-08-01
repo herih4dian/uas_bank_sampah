@@ -39,7 +39,7 @@
 
             
             <div class="card-body">
-              <table id="nasabah" class="table table-bordered table-striped">
+              <table id="semua_tabel" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Nama</th>

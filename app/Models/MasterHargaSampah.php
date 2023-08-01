@@ -18,6 +18,6 @@ class MasterHargaSampah extends Model
 
     public function jenis_sampah(): BelongsTo
     {
-        return $this->belongsTo(MasterJenisSampah::class, 'id_master_jenis_sampah');
+        return $this->belongsTo(MasterJenisSampah::class, 'id_master_jenis_sampah', 'id');
     }
 }

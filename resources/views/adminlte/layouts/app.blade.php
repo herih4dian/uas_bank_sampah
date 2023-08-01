@@ -210,24 +210,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- jQuery -->
 <script>
   $(function () {
-    $("#nasabah").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+    $("#semua_tabel").DataTable({
+      "lengthChange": true,
+      "pageLength": 10,
+      // "dom": 'Bfrtip',
+      "lengthMenu": [ 10, 25, 50, 75, 100 ],
+      "responsive": true, 
+      "autoWidth": false,
       // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-
-    $("#satuan").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    // $('#example2').DataTable({
-    //   "paging": true,
-    //   "lengthChange": false,
-    //   "searching": false,
-    //   "ordering": true,
-    //   "info": true,
-    //   "autoWidth": false,
-    //   "responsive": true,
-    // });
+      "language": {
+            "lengthMenu": "Menampilkan _MENU_ records per Halaman",
+            "zeroRecords": "Data Tidak Tersedia - Maaf",
+            "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Data Tidak Tersedia",
+            "infoFiltered": "(filtered from _MAX_ total records)"
+        }
+    }).buttons().container().appendTo('#semua_tabels_wrapper .col-md-6:eq(0)');
+    
   });
 
   
