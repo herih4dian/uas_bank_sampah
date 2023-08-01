@@ -33,24 +33,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('home') }}" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('nasabah.index') }}" class="nav-link">Nasabah</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('satuan.index') }}" class="nav-link">Satuan</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('jenis.index') }}" class="nav-link">Jenis Sampah</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>
-      </li>
+      </li> --}}
     </ul>
 
     <!-- Right navbar links -->
@@ -122,9 +110,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+            <li class="nav-item"> <!-- menu-open -->
+              <a href="{{ url('home') }}" class="nav-link {{ (request()->is('home*')) ? 'active' : '' }}"> <!-- active -->
+                <i class="nav-icon fas fa-home"></i>
+                Home
+              </a>
+            </li>
+            
             <li class="nav-item {{ (request()->is('bank*')) ? 'menu-open' : '' }}"> <!-- menu-open -->
               <a href="#" class="nav-link {{ (request()->is('bank*')) ? 'active' : '' }}"> <!-- active -->
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-university"></i>
               <p>
                 Bank Sampah
                 <i class="right fas fa-angle-left"></i>
@@ -154,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item {{ (request()->is('manajemen*')) ? 'menu-open' : '' }}"> <!-- menu-open -->
               <a href="#" class="nav-link {{ (request()->is('manajemen*')) ? 'active' : '' }}"> <!-- active -->
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Management Nasabah
                 <i class="right fas fa-angle-left"></i>
@@ -175,6 +170,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+
+          
+
+          <li class="nav-item"> <!-- menu-open -->
+              <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                <i class="nav-icon fas fa-sign-out-alt"></i>
+                Logout
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+              </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
