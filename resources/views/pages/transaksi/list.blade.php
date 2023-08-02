@@ -58,7 +58,7 @@
                               <td>{{ $val->satuans }} /{{ $val->satuan_status }}</td>
                               <th>
                                 <a href="{{ url('manajemen/transaksi/edit/'.$val->id) }}"><i class="fas fa-edit"></i></a>
-                                <a href="{{ url('manajemen/transaksi/delete/'.$val->id) }}"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url('manajemen/transaksi/delete/'.$val->id) }}"><i class="far fa-trash-alt"></i></a>
                               </th>
                           </tr>
                   @empty
