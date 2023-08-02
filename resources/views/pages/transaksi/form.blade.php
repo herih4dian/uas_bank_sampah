@@ -58,7 +58,7 @@
                   <div class="form-group">
                     <label>Tanggal:</label>
                       <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                          <input type="text" class="form-control datetimepicker-input @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{  old('tanggal_transaksi', ($data) ? date('m/d/Y', strtotime($data->tanggal_transaksi)) : '')  }}" data-target="#reservationdate">
+                          <input type="text" class="form-control datetimepicker-input @error('tanggal_transaksi') is-invalid @enderror" name="tanggal_transaksi" value="{{  old('tanggal_transaksi', ($data) ? \Carbon\Carbon::createFromFormat('Y-m-d', $data->tanggal_transaksi)->format('d/m/Y') : '')  }}" data-target="#reservationdate">
                           <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                               <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                           </div>

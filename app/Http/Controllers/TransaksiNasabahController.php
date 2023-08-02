@@ -6,6 +6,7 @@ use App\Models\MasterJenisSampah;
 use App\Models\MasterNasabah;
 use App\Models\MasterSatuan;
 use App\Models\TransaksiNasabah;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TransaksiNasabahController extends Controller
@@ -45,7 +46,7 @@ class TransaksiNasabahController extends Controller
             'satuan_status' => 'required'
         ]);
 
-        $date = date('Y-m-d H:i:s', strtotime($request->tanggal_transaksi));
+        $date = Carbon::createFromFormat('d/m/Y', $request->tanggal_transaksi)->format('Y-m-d');
 
         TransaksiNasabah::create([
             'tanggal_transaksi' => $date,

@@ -52,7 +52,7 @@
                 <tbody>
                   @forelse ($datas as $val)
                           <tr>
-                              <td>{{ $val->tanggal_transaksi }}</td>
+                              <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $val->tanggal_transaksi)->format('d/m/Y') }}</td>
                               <td>{{ $val->nasabah->nama ?? '-' }}</td>
                               <td>{{ $val->jenis_sampah->type_sampah ?? '-' }}</td>
                               <td>{{ $val->satuans }} /{{ $val->satuan_status }}</td>
