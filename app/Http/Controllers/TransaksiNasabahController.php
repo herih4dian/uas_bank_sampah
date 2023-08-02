@@ -84,9 +84,30 @@ class TransaksiNasabahController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TransaksiNasabah $transaksiNasabah)
+    public function update(Request $request, String $id)
     {
-        //
+        $this->validate($request, [
+            'tanggal_transaksi' => 'required',
+            'id_nasabah' => 'required',
+            'id_jenis_sampah' => 'required',
+            'satuans' => 'required',
+            'satuan_status' => 'required'
+        ]);
+
+        $date = Carbon::createFromFormat('d/m/Y', $request->tanggal_transaksi)->format('Y-m-d');
+
+        //get post by ID
+        $data = TransaksiNasabah::findOrFail($id);
+
+        $data->update([
+            'tanggal_transaksi' => $date,
+            'id_nasabah' => $request->id_nasabah,
+            'id_jenis_sampah' => $request->id_jenis_sampah,
+            'satuans' => $request->satuans,
+            'satuan_status' => $request->satuan_status,
+        ]);
+
+        return redirect()->route('transaksi.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
