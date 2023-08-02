@@ -16,15 +16,6 @@ return new class extends Migration
             $table->string('type_sampah', 100);
             $table->timestamps();
         });
-
-        // Schema::create('content', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('topik', 100);
-        //     $table->string('materi', 200);
-        //     $table->text('konten', );
-        //     $table->string('keterangan', 300);
-        //     $table->timestamps();
-        // });
     }
 
     /**

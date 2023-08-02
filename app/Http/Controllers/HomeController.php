@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TransaksiNasabah;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $datas = TransaksiNasabah::all();
+        return view('pages.transaksi.list_home', compact('datas'));
     }
 }

@@ -21,8 +21,6 @@ return new class extends Migration
             $table->integer('satuans');
             $table->bigInteger('satuan_status')->unsigned();
             $table->foreign('satuan_status')->references('id')->on('master_satuan_tables');  
-
-            
             $table->timestamps();
         });
     }

@@ -269,6 +269,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
             "infoFiltered": "(filtered from _MAX_ total records)"
         }
     }).buttons().container().appendTo('#semua_tabels_wrapper .col-md-6:eq(0)');
+
+    $("#tabel_home").DataTable({
+      "lengthChange": false,
+      "pageLength": 10,
+      // "dom": 'Bfrtip',
+      "lengthMenu": [ 10, 25, 50, 75, 100 ],
+      "responsive": true, 
+      "autoWidth": false,
+      "search": false,
+      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "language": {
+            "lengthMenu": "Menampilkan _MENU_ records per Halaman",
+            "zeroRecords": "Data Tidak Tersedia - Maaf",
+            "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Data Tidak Tersedia",
+            "infoFiltered": "(filtered from _MAX_ total records)"
+        }
+    }).buttons().container().appendTo('#semua_tabels_wrapper .col-md-6:eq(0)');
     
     //Date picker
     $('#reservationdate').datetimepicker({

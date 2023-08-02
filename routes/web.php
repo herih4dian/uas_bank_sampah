@@ -34,18 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    // Route::get('/mikrotik', [MikrotikController::class, 'index'])->name('mikrotik.index');
-    // Route::get('/mikrotik/create', [MikrotikController::class, 'create'])->name('mikrotik.create');
-    // Route::get('/mikrotik/edit/{id}', [MikrotikController::class, 'edit'])->name('mikrotik.edit')->where('id', '[0-9]+');
-
-    // Route::get('/mikrotik/pppoe', [MikrotikController::class, 'pppoe'])->name('mikrotik.pppoe');
-
-    // Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan.index');
-    // Route::get('/pelanggan/create', [PelangganController::class, 'create'])->name('pelanggan.create');
-    // Route::post('/pelanggan/store', [PelangganController::class, 'store'])->name('pelanggan.store');
-    // Route::get('/pelanggan/edit/{id}', [PelangganController::class, 'edit'])->name('pelanggan.edit')->where('id', '[0-9]+');
-    // Route::put('/pelanggan/update/{id}', [PelangganController::class, 'update'])->name('pelanggan.update')->where('id', '[0-9]+');
-
+    
     Route::get('manajemen/nasabah', [MasterNasabahController::class, 'index'])->name('nasabah.index');
     Route::get('manajemen/nasabah/create', [MasterNasabahController::class, 'create'])->name('nasabah.create');
     Route::post('manajemen/nasabah/store', [MasterNasabahController::class, 'store'])->name('nasabah.store');
