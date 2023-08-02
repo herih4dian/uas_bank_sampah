@@ -56,11 +56,14 @@
                               <td>{{ $val->nasabah->nama ?? '-' }}</td>
                               <td>{{ $val->jenis_sampah->type_sampah ?? '-' }}</td>
                               <td>{{ $val->satuans }} /{{ $val->satuan_status }}</td>
-                              <th><a href="{{ url('manajemen/transaksi/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
+                              <th>
+                                <a href="{{ url('manajemen/transaksi/edit/'.$val->id) }}"><i class="fas fa-edit"></i></a>
+                                <a href="{{ url('manajemen/transaksi/delete/'.$val->id) }}"><i class="fas fa-edit"></i></a>
+                              </th>
                           </tr>
                   @empty
                       <tr>
-                          <td colspan="4">No Data</td>
+                          <td colspan="5">No Data</td>
                       </tr>
                   @endforelse
                 </tfoot>

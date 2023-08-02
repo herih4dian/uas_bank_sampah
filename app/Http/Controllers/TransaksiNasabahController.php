@@ -91,8 +91,10 @@ class TransaksiNasabahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TransaksiNasabah $transaksiNasabah)
+    public function destroy(String $id)
     {
-        //
+        $transaksi = TransaksiNasabah::findOrFail($id);
+        $transaksi->delete();
+        return redirect()->route('transaksi.index')->with(['success' => 'Data Berhasil Di Hapus!']);
     }
 }

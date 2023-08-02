@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::post('manajemen/transaksi/store', [TransaksiNasabahController::class, 'store'])->name('transaksi.store');
     Route::get('manajemen/transaksi/edit/{id}', [TransaksiNasabahController::class, 'edit'])->name('transaksi.edit')->where('id', '[0-9]+');
     Route::put('manajemen/transaksi/update/{id}', [TransaksiNasabahController::class, 'update'])->name('transaksi.update')->where('id', '[0-9]+');
+    Route::get('manajemen/transaksi/delete/{id}', [TransaksiNasabahController::class, 'destroy'])->name('transaksi.destroy')->where('id', '[0-9]+');
 
     Route::get('bank/satuan', [MasterSatuanController::class, 'index'])->name('satuan.index');
     Route::get('bank/satuan/create', [MasterSatuanController::class, 'create'])->name('satuan.create');
