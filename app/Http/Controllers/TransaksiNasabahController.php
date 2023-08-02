@@ -36,7 +36,27 @@ class TransaksiNasabahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate form
+        $this->validate($request, [
+            'tanggal_transaksi' => 'required',
+            'id_nasabah' => 'required',
+            'id_jenis_sampah' => 'required',
+            'satuans' => 'required',
+            'satuan_status' => 'required'
+        ]);
+
+        $date = date('Y-m-d H:i:s', strtotime($request->tanggal_transaksi));
+
+        TransaksiNasabah::create([
+            'tanggal_transaksi' => $date,
+            'id_nasabah' => $request->id_nasabah,
+            'id_jenis_sampah' => $request->id_jenis_sampah,
+            'satuans' => $request->satuans,
+            'satuan_status' => $request->satuan_status,
+        ]);
+
+        //redirect to index
+        return redirect()->route('transaksi.index')->with(['success' => 'Data Berhasil Di Simpan!']);
     }
 
     /**

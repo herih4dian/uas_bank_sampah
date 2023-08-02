@@ -46,14 +46,15 @@
                   <th>Nama Nasabah</th>
                   <th>Jenis Sampah</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                   @forelse ($datas as $val)
                           <tr>
                               <td>{{ $val->tanggal_transaksi }}</td>
-                              <td>{{ $val->id_nasabah }}</td>
-                              <td>{{ $val->id_jenis_sampah }}</td>
+                              <td>{{ $val->nasabah->nama ?? '-' }}</td>
+                              <td>{{ $val->jenis_sampah->type_sampah ?? '-' }}</td>
                               <td>{{ $val->satuans }} /{{ $val->satuan_status }}</td>
                               <th><a href="{{ url('transaksi/edit/'.$val->id) }}"><i class="fas fa-edit"></i></th>
                           </tr>

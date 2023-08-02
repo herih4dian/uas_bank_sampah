@@ -16,8 +16,5 @@ class MasterJenisSampah extends Model
         'type_sampah'
     ];
     
-    public function harga_sampah(): HasMany
-    {
-        return $this->hasMany(MasterHargaSampah::class, MasterSatuan::class);
-    }
+   
 }
