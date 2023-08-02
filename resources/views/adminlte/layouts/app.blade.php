@@ -13,7 +13,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
-
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -157,13 +158,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('manajemen/nasabah') }}" class="nav-link {{ (request()->is('manajemen/nasabah')) ? 'active' : '' }}">
+                <a href="{{ url('manajemen/nasabah') }}" class="nav-link {{ (request()->is('manajemen/nasabah*')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Nasabah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('manajemen/transaksi') }}" class="nav-link {{ (request()->is('manajemen/transaksi')) ? 'active' : '' }}">
+                <a href="{{ url('manajemen/transaksi') }}" class="nav-link {{ (request()->is('manajemen/transaksi*')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Riwayat Transaksi</p>
                 </a>
@@ -194,12 +195,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 
+
+
+
+
+
 <!-- jQuery -->
 <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 <!-- Bootstrap 4 -->
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
+<!-- InputMask -->
+<script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/inputmask/jquery.inputmask.min.js') }}"></script>
 
 <!-- DataTables  & Plugins -->
 <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
@@ -214,6 +226,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+<!-- date-range-picker -->
+<script src="{{ asset('assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
 
 <!-- jQuery -->
 <script>
@@ -235,8 +250,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
     }).buttons().container().appendTo('#semua_tabels_wrapper .col-md-6:eq(0)');
     
-  });
+    //Date picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
 
+
+  });
   
 </script>
 

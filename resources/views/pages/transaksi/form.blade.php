@@ -11,11 +11,11 @@
             Edit
           @else
             Create
-          @endif Nasabah</h1>
+          @endif Transaksi</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="/nasabah">Nasabah</a></li>
+            <li class="breadcrumb-item"><a href="/manajemen/transaksi">Transaksi</a></li>
             <li class="breadcrumb-item active">@if($data)         
               Edit
             @else
@@ -46,7 +46,7 @@
                 Nasabah</h3>
               </div>
               
-              <form class="form-horizontal" action="{{ (request()->is('nasabah/create')) ? url('nasabah/store') : url('nasabah/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
+              <form class="form-horizontal" action="{{ (request()->is('manajemen/transaksi/create')) ? url('manajemen/transaksi/store') : url('manajemen/transaksi/update', $data->id) }}" method="POST" enctype="multipart/form-data" >
                 @csrf
                 @if($data)         
                   @method('PUT')
@@ -54,7 +54,113 @@
                   @method('POST') 
                 @endif
                 <div class="card-body">
+
                   <div class="form-group">
+                    <label>Tanggal:</label>
+                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                          <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                          <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="font-weight-bold">Nasabah</label>
+                    <select class="form-control rounded-0 custom-select @error('id_nasabah') is-invalid @enderror" name="id_nasabah">
+                      <option value="" selected>-</option>
+                      @forelse ($nasabah as $val)
+                        <option value="{{ $val->id }}" {{ ($data) ? (($val->id == $data->id_nasabah ) ? 'selected' : '') : '' }}>{{ $val->nama }}</option>
+                      @empty
+                        <tr>
+                          <option value="">No Data</option>
+                        </tr>
+                      @endforelse
+                    </select>
+                    @error('id_nasabah')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
+
+                  <div class="form-group">
+                    <label class="font-weight-bold">Jenis / Type</label>
+                    <select class="form-control rounded-0 custom-select @error('id_jenis_sampah') is-invalid @enderror" name="id_jenis_sampah">
+                      <option value="" selected>-</option>
+                      @forelse ($j_sampah as $val)
+                        <option value="{{ $val->id }}" {{ ($data) ? (($val->id == $data->id_jenis_sampah ) ? 'selected' : '') : '' }}>{{ $val->type_sampah }}</option>
+                      @empty
+                        <tr>
+                          <option value="">No Data</option>
+                        </tr>
+                      @endforelse
+                    </select>
+                    @error('id_jenis_sampah')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <div class="form-group">
+                        <label class="font-weight-bold">Jumlah</label>
+                        <input type="text" class="form-control @error('satuans') is-invalid @enderror" name="satuans" value="{{  old('satuans', ($data) ? $data->satuans : '')  }}" placeholder="Jumlah">
+                        @error('nama')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <!--satuan-->
+                      <div class="form-group">
+                        <label class="font-weight-bold">Satuan</label>
+                        <select class="form-control rounded-0 custom-select @error('satuan_status') is-invalid @enderror" name="satuan_status">
+                          <option value="" selected>-</option>
+                          @forelse ($satuan as $val)
+                            <option value="{{ $val->id }}" {{ ($data) ? (($val->id == $data->satuan_status ) ? 'selected' : '') : '' }}>{{ $val->satuan }}</option>
+                          @empty
+                            <tr>
+                              <option value="">No Data</option>
+                            </tr>
+                          @endforelse
+                        </select>
+                        @error('satuan_status')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                      </div>
+                      <!--satuan-->
+                    </div>
+
+                  </div>
+
+                  {{-- <div class="form-group">
+                    <label class="font-weight-bold">Satuan</label>
+                    <select class="form-control rounded-0 custom-select @error('id_master_satuan') is-invalid @enderror" name="id_master_satuan">
+                      <option value="" selected>-</option>
+                      @forelse ($satuan as $val)
+                        <option value="{{ $val->id }}" {{ ($data) ? (($val->id == $data->id_master_satuan ) ? 'selected' : '') : '' }}>{{ $val->satuan }}</option>
+                      @empty
+                        <tr>
+                          <option value="">No Data</option>
+                        </tr>
+                      @endforelse
+                    </select>
+                    @error('id_master_satuan')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                  </div> --}}
+
+                  {{-- <div class="form-group">
                     <label class="font-weight-bold">Nama</label>
                     <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{  old('nama', ($data) ? $data->nama : '')  }}" placeholder="Masukkan Nama">
                     @error('nama')
@@ -72,7 +178,7 @@
                             {{ $message }}
                         </div>
                     @enderror
-                  </div>
+                  </div> --}}
 
                 </div>
                 
@@ -85,7 +191,7 @@
                     @endif
                   </button>
                   <button type="reset" class="btn btn-md btn-warning">RESET</button>
-                  <a type="button" href="/nasabah" class="btn btn-default float-right">KEMBALI</a>
+                  <a type="button" href="/manajemen/transaksi" class="btn btn-default float-right">KEMBALI</a>
                 </div>
               
               </form>

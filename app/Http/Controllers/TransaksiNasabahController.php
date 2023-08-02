@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MasterJenisSampah;
+use App\Models\MasterNasabah;
+use App\Models\MasterSatuan;
 use App\Models\TransaksiNasabah;
 use Illuminate\Http\Request;
 
@@ -21,7 +24,11 @@ class TransaksiNasabahController extends Controller
      */
     public function create()
     {
-        //
+        $data = [];
+        $nasabah = MasterNasabah::all();
+        $j_sampah = MasterJenisSampah::all();
+        $satuan = MasterSatuan::all();
+        return view('pages.transaksi.form', compact('data', 'nasabah', 'j_sampah','satuan'));
     }
 
     /**
@@ -43,9 +50,14 @@ class TransaksiNasabahController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TransaksiNasabah $transaksiNasabah)
+    public function edit(String $id)
     {
         //
+        $data = TransaksiNasabah::findOrFail($id);
+        $nasabah = MasterNasabah::all();
+        $j_sampah = MasterJenisSampah::all();
+        $satuan = MasterSatuan::all();
+        return view('pages.transaksi.form', compact('data', 'nasabah', 'j_sampah', 'satuan'));
     }
 
     /**
