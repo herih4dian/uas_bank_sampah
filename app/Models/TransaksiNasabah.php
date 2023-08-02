@@ -24,4 +24,9 @@ class TransaksiNasabah extends Model
     {
         return $this->belongsTo(MasterNasabah::class, 'id_nasabah', 'id');
     }
+
+    public function satuan(): BelongsTo
+    {
+        return $this->belongsTo(MasterSatuan::class, 'satuan_status', 'id');
+    }
 }

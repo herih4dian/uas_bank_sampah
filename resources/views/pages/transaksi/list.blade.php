@@ -55,7 +55,7 @@
                               <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $val->tanggal_transaksi)->format('d/m/Y') }}</td>
                               <td>{{ $val->nasabah->nama ?? '-' }}</td>
                               <td>{{ $val->jenis_sampah->type_sampah ?? '-' }}</td>
-                              <td>{{ $val->satuans }} /{{ $val->satuan_status }}</td>
+                              <td>{{ $val->satuans }} /{{ $val->satuan->satuan }}</td>
                               <th>
                                 <a href="{{ url('manajemen/transaksi/edit/'.$val->id) }}"><i class="fas fa-edit"></i></a>
                                 <a href="{{ url('manajemen/transaksi/delete/'.$val->id) }}"><i class="far fa-trash-alt"></i></a>
