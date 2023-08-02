@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterHargaSampahController;
 use App\Http\Controllers\MasterJenisSampahController;
 use App\Http\Controllers\MasterNasabahController;
@@ -22,19 +23,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     // Route::get('/mikrotik', [MikrotikController::class, 'index'])->name('mikrotik.index');
     // Route::get('/mikrotik/create', [MikrotikController::class, 'create'])->name('mikrotik.create');
     // Route::get('/mikrotik/edit/{id}', [MikrotikController::class, 'edit'])->name('mikrotik.edit')->where('id', '[0-9]+');
