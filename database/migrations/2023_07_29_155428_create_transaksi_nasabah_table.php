@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('id_nasabah')->references('id')->on('master_nasabah');  
             $table->bigInteger('id_jenis_sampah')->unsigned();
             $table->foreign('id_jenis_sampah')->references('id')->on('master_jenis_sampah');  
-            $table->integer('satuans');
+            $table->float('satuans', 8, 2);
             $table->bigInteger('satuan_status')->unsigned();
             $table->foreign('satuan_status')->references('id')->on('master_satuan_tables');  
             $table->timestamps();
